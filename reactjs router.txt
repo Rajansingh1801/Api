@@ -1,0 +1,27 @@
+latest route
+npm i react-route-dom
+
+on index.js file add
+
+//**********************//
+import { BrowserRouter } from "react-router-dom";
+<React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+
+//***********************//
+
+
+in route js file add
+
+ <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+
+
+only this much

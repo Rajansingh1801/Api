@@ -1,0 +1,47 @@
+ const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [description, setDescription] = useState("");
+
+  const validateAndSubmit = async (e) => {
+    e.preventDefault();
+
+    
+      const FormData = {
+        name: name,
+        email: email,
+        description: description,
+        countryCode: `+${countryCode}`,
+        mobileNumber: newphoneNumber,
+      };
+
+     
+
+      try {
+        const response = await fetch(
+          "https://smartcarrots.com/user/contactUs",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(FormData),
+          }
+        );
+
+        const responseData = await response.json();
+        console.log(responseData);
+        toast("Your Form is Submited");
+        setName("");
+        setDescription("");
+        setEmail("");
+        setPhoneNo("");
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+        }, 50);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  };
